@@ -1,0 +1,42 @@
+Options +FollowSymlinks
+Options +MultiViews 
+RewriteEngine on
+RewriteOptions Inherit
+
+RewriteRule ^get_data_user/([0-9]+)$ index.php?action=get_data_user&key=$1 [L]
+RewriteRule ^get_cloud_u/([0-9]+)/([0-9]+)$ index.php?action=get_cloud_u&key=$1&id_cloud=$2 [L]
+RewriteRule ^get_cloud/([0-9]+)$ index.php?action=get_cloud&key=$1 [L]
+RewriteRule ^get_elements/([0-9]+)/([0-9]+)/([0-9]+)$ index.php?action=get_elements&key=$1&id_cloud=$2&id_folder=$3 [L]
+
+RewriteRule ^upload_file/([0-9]+)/([0-9]+)/([0-9]+)$ index.php?action=upload_file&key=$1&id_cloud=$2&id_folder=$3 [L]
+RewriteRule ^get_upload/([0-9]+)$ index.php?action=get_upload&id=$1 [L]
+
+RewriteRule ^delete_file/([0-9]+)/([0-9]+)/([0-9]+)$ index.php?action=delete_file&key=$1&id_cloud=$2&id_file=$3 [L]
+RewriteRule ^delete_folder/([0-9]+)/([0-9]+)/([0-9]+)$ index.php?action=delete_folder&key=$1&id_cloud=$2&id_folder=$3 [L]
+RewriteRule ^delete_cloud/([0-9]+)/([0-9]+)$ index.php?action=delete_cloud&key=$1&id_cloud=$2 [L]
+
+RewriteRule ^direct_download/(.*)$ index.php?action=direct_download&uid=$1 [L]
+RewriteRule ^download/([0-9]+)/([0-9]+)$ index.php?action=download&key=$1&id_file=$2 [L]
+RewriteRule ^look_file/([0-9]+)/([0-9]+)$ index.php?action=look_file&key=$1&id_file=$2 [L]
+
+RewriteRule ^create_folder/([0-9]+)/([0-9]+)/([0-9]+)/(.*)$ index.php?action=create_folder&key=$1&id_cloud=$2&id_folder=$3&name=$4 [L]
+RewriteRule ^create_file/([0-9]+)/([0-9]+)/([0-9]+)/(.*)$ index.php?action=create_file&key=$1&id_cloud=$2&id_folder=$3&name=$4 [L]
+
+RewriteRule ^connect/([a-z0-9A-Z]+)/([a-z0-9A-Z]+)$ index.php?action=connect&login=$1&password=$2 [L]
+RewriteRule ^register/([a-z0-9A-Z]+)/([a-z0-9A-Z]+)/([a-z0-9A-Z]+)/(.*)$ index.php?action=register&login=$1&password=$2&repassword=$3&mail=$4 [L]
+
+RewriteRule ^create_cloud/([0-9]+)/([a-z0-9A-Z]+)/([0-9]+)$ index.php?action=create_cloud&key=$1&name=$2&type=$3 [L]
+
+RewriteRule ^rename_folder/([0-9]+)/([0-9]+)/(.*)$ index.php?action=rename_folder&key=$1&id_folder=$2&name=$3 [L]
+RewriteRule ^rename_file/([0-9]+)/([0-9]+)/(.*)$ index.php?action=rename_file&key=$1&id_file=$2&name=$3 [L]
+
+RewriteRule ^create_min_url/https:/(.*)$ index.php?action=create_min_url&url=$1&type=1 [L]
+RewriteRule ^create_min_url/http:/(.*)$ index.php?action=create_min_url&url=$1&type=2 [L]
+
+RewriteRule ^read_file/([0-9]+)/([0-9]+)$ index.php?action=read_file&key=$1&id_file=$2 [L]
+RewriteRule ^write_file/([0-9]+)/([0-9]+)$ index.php?action=write_file&key=$1&id_file=$2 [L]
+
+RewriteRule ^get_table/([0-9]+)/([0-9]+)$ index.php?action=get_table&key=$1&id_cloud=$2 [L]
+RewriteRule ^get_table_columns/([0-9]+)/([0-9]+)/(.*)$ index.php?action=get_table_columns&key=$1&id_cloud=$2&name_table=$3 [L]
+RewriteRule ^get_elements_table/([0-9]+)/([0-9]+)/(.*)$ index.php?action=get_elements_table&key=$1&id_cloud=$2&name_table=$3 [L]
+RewriteRule ^create_table/([0-9]+)/([0-9]+)$ index.php?action=create_table&key=$1&id_cloud=$2 [L]
